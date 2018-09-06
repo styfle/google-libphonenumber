@@ -3449,31 +3449,24 @@ function testParseExtensions() {
   ruWithExtension.setNationalNumber(4232022511);
   ruWithExtension.setExtension('100');
   assertTrue(ruWithExtension.equals(
-      phoneUtil.parse('8 (423) 202-25-11, доб. 100',
-                      RegionCode.RU)));
+      phoneUtil.parse('8 (423) 202-25-11, доб. 100', RegionCode.RU)));
   assertTrue(ruWithExtension.equals(
-      phoneUtil.parse('8 (423) 202-25-11 доб. 100',
-		      RegionCode.RU)));
+      phoneUtil.parse('8 (423) 202-25-11 доб. 100', RegionCode.RU)));
   assertTrue(ruWithExtension.equals(
-      phoneUtil.parse('8 (423) 202-25-11, доб 100',
-		      RegionCode.RU)));
+      phoneUtil.parse('8 (423) 202-25-11, доб 100', RegionCode.RU)));
   assertTrue(ruWithExtension.equals(
-      phoneUtil.parse('8 (423) 202-25-11 доб 100',
-		      RegionCode.RU)));
+      phoneUtil.parse('8 (423) 202-25-11 доб 100', RegionCode.RU)));
   assertTrue(ruWithExtension.equals(
-      phoneUtil.parse('8 (423) 202-25-11доб100',
-		      RegionCode.RU)));
+      phoneUtil.parse('8 (423) 202-25-11доб100', RegionCode.RU)));
   // Testing in unicode format
   assertTrue(ruWithExtension.equals(
       phoneUtil.parse('8 (423) 202-25-11, \u0434\u043E\u0431. 100',
                       RegionCode.RU)));
   // In upper case
   assertTrue(ruWithExtension.equals(
-    phoneUtil.parse('8 (423) 202-25-11ДОБ100',
-	               RegionCode.RU)));
+      phoneUtil.parse('8 (423) 202-25-11ДОБ100', RegionCode.RU)));
   assertTrue(ruWithExtension.equals(
-    phoneUtil.parse('8 (423) 202-25-11\u0414\u041E\u0411100',
-	               RegionCode.RU)));
+      phoneUtil.parse('8 (423) 202-25-11\u0414\u041E\u0411100', RegionCode.RU)));
 
   // Test that if a number has two extensions specified, we ignore the second.
   /** @type {i18n.phonenumbers.PhoneNumber} */
@@ -3656,9 +3649,8 @@ function testIsNumberMatchMatches() {
                phoneUtil.isNumberMatch('+64 3 331-6005 ext. 1234',
                                        '+6433316005;1234'));
   assertEquals(i18n.phonenumbers.PhoneNumberUtil.MatchType.EXACT_MATCH,
-                 phoneUtil.isNumberMatch(
-		     '+7 423 202-25-11 ext 100',
-		     '+7 4232022511 доб. 100'));
+                 phoneUtil.isNumberMatch('+7 423 202-25-11 ext 100',
+                                         '+7 4232022511 доб. 100'));
   // Test proto buffers.
   assertEquals(i18n.phonenumbers.PhoneNumberUtil.MatchType.EXACT_MATCH,
                phoneUtil.isNumberMatch(NZ_NUMBER, '+6403 331 6005'));
@@ -3933,4 +3925,6 @@ function testIsAlphaNumber() {
   assertFalse(phoneUtil.isAlphaNumber('18 six-flags'));
   assertFalse(phoneUtil.isAlphaNumber('1800 123-1234 extension: 1234'));
   assertFalse(phoneUtil.isAlphaNumber('+800 1234-1234'));
+}
+sertFalse(phoneUtil.isAlphaNumber('+800 1234-1234'));
 }
